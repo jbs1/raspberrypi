@@ -1,6 +1,6 @@
 # Bluetooth stuff
 
-auto power on the dongle:  
+### auto power on the dongle:  
 `/etc/bluetooth/main.conf`
 
 ```
@@ -19,3 +19,10 @@ In order to enable your system to be detected as an A2DP sink (e.g. to play musi
 [General]
 Enable=Source,Sink,Media,Socket
 ```
+
+
+
+
+### other stuff
+
+[generate class hex](http://bluetooth-pentest.narod.ru/software/bluetooth_class_of_device-service_generator.html)
