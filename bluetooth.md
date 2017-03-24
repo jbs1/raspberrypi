@@ -25,6 +25,7 @@ Enable=Source,Sink,Media,Socket
 ### stuff to be installed
 ```
 bluez-tools
+pulseaudio-module-bluetooth
 ```
 
 
