@@ -1,8 +1,9 @@
 # Bluetooth and pulseaudio config
 
-[pulseaudio](https://github.com/davidedg/NAS-mod-config/blob/master/bt-sound/bt-sound-Bluez5_PulseAudio5.txt)
-[bluetooth](https://www.raspberrypi.org/forums/viewtopic.php?t=68779)
+[pulseaudio](https://github.com/davidedg/NAS-mod-config/blob/master/bt-sound/bt-sound-Bluez5_PulseAudio5.txt)  
+[bluetooth](https://www.raspberrypi.org/forums/viewtopic.php?t=68779)  
 
+ `sudo apt-get --purge --reinstall install pulseaudio`
 
 ### other stuff
 
