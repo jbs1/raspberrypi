@@ -89,7 +89,15 @@ PairableTimeout = 60
 
 restart the pi  
 your phone should not appear under `sudo pactl list sources short` and  
-`sudo pactl list short | grep bluez`
+`sudo pactl list short | grep bluez`  
+
+
+to enable playback on the jack find the sink/output via `pactl list sinks short` and the input should be the phone as written in `pactl list sources short`  
+
+now do this with the appropiate values from above:
+```
+pactl load-module module-loopback source=bluez_source.XX_XX_XX_XX_XX_XX sink=alsa_output.0.analog-stereo
+```
   
 
 ### other stuff
