@@ -68,7 +68,7 @@ Via phone:
 
 After the devices are paired/connected type `trust <MAC of phone>` in the console, so you don't have to put in the PIN for every connection. Then reboot the PI.
 
-#### Setting up audio playback
+#### Setting up audio playback:
 Make sure your phone is connected by either typing `connect <MAC of phone>` in the `bluetoothctl` console or by connecting via the phones bluetooth manager.  
 
 To check whether `pulseaudio` recognizes your phone as an audio source type `sudo pactl list sources short` and check whether it appears in the list as `bluez_source.XX_XX_XX_XX_XX_XX` where the X's represent the Phones bluetooth MAC-adress. This will be your source for the loopback module.  
@@ -83,7 +83,7 @@ sudo pactl load-module module-loopback source=bluez_source.XX_XX_XX_XX_XX_XX sin
 Now connect a speaker to the output-jack and play something on your phone and it should play on the speakers connected to your PI.  
 
 
-#### Automating connection and playback setup
+#### Automating connection and playback setup:
 Currently you would have manually connect the phone and setup the loopback module every time we want to use it. This can be avoided with a simple cronjob.  
 
 First download the [bluetooth.sh-script](https://github.com/jbs1/raspberrypi/blob/master/bluetooth.sh) from this repository or clone this repo on your raspberry pi. Edit the bluetooth MAC-address in the script such that it fit's your phone's MAC-address.
@@ -110,15 +110,15 @@ Credit to [source1](https://github.com/davidedg/NAS-mod-config/blob/master/bt-so
 ## Further Information/Configuration
 
 
-#### Editing the Pi's volume
+#### Editing the Pi's volume:
 Edit the volume like this, where the `50%` are the desired Volume.
 ```
 sudo amixer set Master 50%
 ```
-With a Raspberry Pi 1 B if the Volume is set above 50% it will stop working and you will have to restart your Pi and set the Volume to something lower before you start playback again. I assume it is some kind of issue that it takes to much power or CPU. ___Not tested with other models.__
+With a Raspberry Pi 1 B if the Volume is set above 50% it will stop working and you will have to restart your Pi and set the Volume to something lower before you start playback again. I assume it is some kind of issue that it takes to much power or CPU. _Not tested with other models._
 
 
-#### Changing the resample methode
+#### Changing the resample methode:
 If the resample methode is changed to trivial pulseaudio supposedly uses less CPU at the expense of playback quality.  To change it in `/etc/pulse/daemon.conf` edit the `resample-methode` line to this:
 ```
 resample-method = trivial
@@ -126,13 +126,13 @@ resample-method = trivial
 Make sure there is no `;` at the start of the line because that would disable this line and make it a comment.
 
 
-#### Edit bluetooth adapter timings
+#### Edit bluetooth adapter timings:
 In `/etc/bluetooth/main.conf` you should probably remove the `#` in the following lines and edit the numbers such that the bluetooth adapter automatically goes hidden and unpairable again after you made it visible. For security.
 ```
 DiscoverableTimeout = 60
 PairableTimeout = 60
 ```
-#### Further Info
+#### Further Info:
 Here you can generate class hex's for the respective bluetooth-device-classes:  
 [Generate Class Hex](http://bluetooth-pentest.narod.ru/software/bluetooth_class_of_device-service_generator.html)
 
