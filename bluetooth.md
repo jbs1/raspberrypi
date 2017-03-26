@@ -3,25 +3,25 @@
 [pulseaudio](https://github.com/davidedg/NAS-mod-config/blob/master/bt-sound/bt-sound-Bluez5_PulseAudio5.txt)  
 [bluetooth](https://www.raspberrypi.org/forums/viewtopic.php?t=68779)  
 
-#### Install the prerequisites 
+#### Install the prerequisites:
 ```
 sudo apt-get install bluez pulseaudio pulseaudio-module-bluetooth python-gobject python-gobject-2
 ```
 
-#### Enable Bluetooth as Audio sink/source
+#### Enable Bluetooth as Audio sink/source:
 edit `/etc/bluetooth/audio.conf`:  
 ```
 [General]
 Enable=Source,Sink,Media,Socket
 ```
 
-#### Enable pulseaudio access for appropriate users
+#### Enable pulseaudio access for appropriate users:
 ```
 sudo adduser pi pulse-access
 sudo adduser root pulse-access
 ```
 
-#### Enable pulseaudio bluetooth discovery in System mode
+#### Enable pulseaudio bluetooth discovery in System mode:
 edit `/etc/pulse/system.pa`:
 ```
 .ifexists module-bluetooth-discover.so
@@ -29,7 +29,7 @@ load-module module-bluetooth-discover
 .endif
 ```
 
-#### Create autostarting pulseaudio service
+#### Create autostarting pulseaudio service:
 create `/etc/systemd/system/pulseaudio.service`:
 ```
 [Unit]
@@ -48,30 +48,28 @@ sudo systemctl daemon-reload
 sudo systemctl enable pulseaudio.service
 ```
 
-
-
-search and pair device via
- 
+#### Pairing the device:
+for searching and paring use the bluetoothclient via `sudo bluetoothctl`  
+prepare it for pairing with the following comands:
 ```
-sudo bluetoothctl
 power on
 discoverable on
 pairable on
 agent-on
 default-agent
-
-#either initiate pair on the phone and put in the pincode on device and phone
-yes #for confirming media connection
-
-#or init pair in console via
-pair <MAC of phone>
-<pincode input on both devices>
-connect <MAC of phone>
-
-#in both cases after that
-trust <MAC of phone>  
-
 ```
+Then you can either initiate pairing via the phone or via the console.  
+Via console:  
+* `pair <MAC of phone>`
+* type in the same PIN on the phone and on the console when asked
+* `connect <MAC of phone>`
+
+Via phone:
+* search for the raspberry pi on the phone and initiate pair
+* type in the same PIN on the phone and on the console when asked
+* when asked for media connection confirmation on the console type `yes`
+
+After the devices are paired/connected type `trust <MAC of phone>` in the console, so you don't have to put in the PIN for every connection
  
 for security edit the timings in `/etc/bluetooth/main.conf`
  
