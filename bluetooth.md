@@ -66,9 +66,15 @@ pairable on
 agent-on
 default-agent
 
-#then initiate pair on phone and put in the pin
-yes #for connecting to services
+#either initiate pair on the phone and put in the pincode on device and phone
+yes #for confirming media connection
 
+#or init pair in console via
+pair <MAC of phone>
+<pincode input on both devices>
+connect <MAC of phone>
+
+#in both cases after that
 trust <MAC of phone>  
 
 ```
