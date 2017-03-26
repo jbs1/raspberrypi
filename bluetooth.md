@@ -73,8 +73,13 @@ trust <MAC of phone>
 
 ```
  
+for security edit the timings in `/etc/bluetooth/main.conf`
  
- 
+```
+DiscoverableTimeout = 60
+
+PairableTimeout = 60
+```
 
 ### other stuff
 
