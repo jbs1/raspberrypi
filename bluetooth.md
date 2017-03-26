@@ -98,6 +98,16 @@ now do this with the appropiate values from above:
 ```
 pactl load-module module-loopback source=bluez_source.XX_XX_XX_XX_XX_XX sink=alsa_output.0.analog-stereo
 ```
+
+edit volume via: max.50
+```
+sudo amixer set Master 60%
+```
+
+possible edit `sudo nano /etc/pulse/daemon.conf`:(????) testing required trivial=less cpu  
+```
+resample-method = trivial
+```
   
 
 ### other stuff
