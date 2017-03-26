@@ -108,6 +108,17 @@ possible edit `sudo nano /etc/pulse/daemon.conf`:(????) testing required trivial
 ```
 resample-method = trivial
 ```
+
+symbolic link
+```
+ln -s /home/pi/raspberrypi/bluetooth.sh /home/pi/bluetooth.sh
+```
+
+
+crontab -e
+```
+* * * * * /home/pi/raspberrypi/bluetooth.sh >/dev/null 2>&1
+```
   
 
 ### other stuff
