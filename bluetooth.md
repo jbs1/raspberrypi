@@ -1,7 +1,7 @@
 ### Comment at the start
 
-I made this mainly to be able to use Android SmartLock with my phone to keep my phone unlocked in my room and because I had a Pi1 and a really old bluetooth dongle lying around. I don't use it for playback as the Pi1's playback quality is way to bad, also due to CPU limitation.  
-But since Android SmartLock requires and actual connection and just a known bluetooth device beeing around, I had to give it a service to connect to.  
+I made this mainly to be able to use Android Smart Lock with my phone to keep my phone unlocked in my room and because I had a Pi1 and a really old bluetooth dongle lying around. I don't use it for playback as the Pi1's playback quality is way to bad, also due to CPU limitation.  
+But since Android Smart Lock requires and actual connection and just a known bluetooth device beeing around, I had to give it a service to connect to.  
 I would assume with a more powerful Pi, eg. a Pi3 or something the playback would be good enough for using it. This guide should work on all module running the standard Raspbian Jessie.  
 
 
