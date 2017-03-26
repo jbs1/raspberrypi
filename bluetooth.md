@@ -21,6 +21,59 @@
  ```
  
  
+ ```
+ # Load  Bluetooth discover module in SYSTEM MODE:
+############################################################################
+cat <<EOF >> /etc/pulse/system.pa
+#
+### Bluetooth Support
+.ifexists module-bluetooth-discover.so
+load-module module-bluetooth-discover
+.endif
+EOF
+############################################################################
+
+
+
+# Create a systemd service for running pulseaudio in System Mode as user "pulse".
+############################################################################
+cat <<EOF >/etc/systemd/system/pulseaudio.service
+[Unit]
+Description=Pulse Audio
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/pulseaudio --system --disallow-exit --disable-shm --exit-idle-time=-1
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+
+###############################################################
+
+systemctl daemon-reload
+systemctl enable pulseaudio.service
+```
+ 
+search and pair device via
+ 
+```
+sudo bluetoothctl
+power on
+discoverable on
+pairable on
+agent-on
+default-agent
+
+#then initiate pair on phone and put in the pin
+yes #for connecting to services
+
+trust <MAC of phone>  
+
+```
+ 
+ 
  
 
 ### other stuff
