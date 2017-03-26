@@ -117,7 +117,7 @@ ln -s /home/pi/raspberrypi/bluetooth.sh /home/pi/bluetooth.sh
 
 crontab -e
 ```
-* * * * * /home/pi/raspberrypi/bluetooth.sh >/dev/null 2>&1
+* * * * * /home/pi/bluetooth.sh >/dev/null 2>&1
 ```
   
 
