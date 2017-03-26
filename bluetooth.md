@@ -81,6 +81,11 @@ DiscoverableTimeout = 60
 PairableTimeout = 60
 ```
 
+restart the pi  
+your phone should not appear under `sudo pactl list sources short` and  
+`sudo pactl list short | grep bluez`
+  
+
 ### other stuff
 
 [generate class hex](http://bluetooth-pentest.narod.ru/software/bluetooth_class_of_device-service_generator.html)
